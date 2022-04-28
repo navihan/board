@@ -16,6 +16,7 @@ public class BoardDto {
     private String writer;
     private String title;
     private String content;
+    private int cnt;
     private LocalDateTime reg_date;
 
     public Board toEntity(){
@@ -24,17 +25,19 @@ public class BoardDto {
                 .writer(writer)
                 .title(title)
                 .content(content)
+                .cnt(cnt)
                 .reg_date(reg_date)
                 .build();
         return boardEntity;
     }
 
     @Builder
-    public BoardDto(Long seq, String title, String content, String writer, LocalDateTime reg_date) {
+    public BoardDto(Long seq, String title, String content, String writer, int cnt, LocalDateTime reg_date) {
         this.seq = seq;
         this.writer = writer;
         this.title = title;
         this.content = content;
+        this.cnt = cnt;
         this.reg_date = reg_date;
     }
 }

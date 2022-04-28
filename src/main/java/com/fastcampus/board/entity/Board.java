@@ -30,6 +30,8 @@ public class Board extends TimeEntity{
 //    @Column(length = 2000, nullable = false)
     private String content;
 
+    private int cnt;
+
 //    @CreatedDate
 //    @Column(updatable = false)
     private LocalDateTime reg_date = LocalDateTime.now();
@@ -37,19 +39,26 @@ public class Board extends TimeEntity{
 
 
     @Builder
-    public Board(String title, String content, String writer, LocalDateTime reg_date) {
+    public Board(String title, String content, String writer, int cnt, LocalDateTime reg_date) {
    //     this.seq = seq;
         this.title = title;
         this.content = content;
         this.writer = writer;
+        this.cnt = cnt;
     //    this.reg_date = reg_date;
 
     }
 
-    public void update(String title, String content, String writer) {
+    public void update(String title, String content, String writer, int cnt) {
         this.title = title;
         this.content = content;
         this.writer = writer;
+        this.cnt = cnt+1;
         this.reg_date = LocalDateTime.now();
     }
+
+    public void updateCnt(int cnt) {
+        this.cnt = cnt+1;
+    }
+
 }

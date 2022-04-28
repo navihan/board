@@ -31,6 +31,7 @@ public class BoardService {
                     .title(boardEntity.getTitle())
                     .content(boardEntity.getContent())
                     .writer(boardEntity.getWriter())
+                    .cnt(boardEntity.getCnt())
                     .reg_date(boardEntity.getReg_date())
                     .build();
 
@@ -50,11 +51,13 @@ public class BoardService {
                 .title(boardEntity.getTitle())
                 .content(boardEntity.getContent())
                 .writer(boardEntity.getWriter())
+                .cnt(boardEntity.getCnt())
                 .reg_date(boardEntity.getReg_date())
                 .build();
 
         return boardDTO;
     }
+
 
     @Transactional
     public Long savePost(BoardDto boardDto) {
@@ -73,8 +76,21 @@ public class BoardService {
 //            throw new CustomException(ErrorCode.POSTS_NOT_FOUND);
 //        }
 
-        entity.update(params.getTitle(), params.getContent(), params.getWriter());
+        entity.update(params.getTitle(), params.getContent(), params.getWriter(), params.getCnt());
         return params.getSeq();
+    }
+
+
+    @Transactional
+    public void updateCnt(final BoardDto params) {
+
+        Board entity = boardRepository.findById(params.getSeq()).orElse(null);
+//
+//        if (entity == null) {
+//            throw new CustomException(ErrorCode.POSTS_NOT_FOUND);
+//        }
+
+        entity.updateCnt(params.getCnt());
     }
 
     @Transactional

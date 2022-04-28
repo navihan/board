@@ -31,6 +31,7 @@
                 <th>NickName</th>
                 <th>Title</th>
                 <th>Content</th>
+                <th>cnt</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -39,8 +40,9 @@
                 <tr>
                     <td>${post.getSeq()}</td>
                     <td>${post.getWriter()}</td>
-                    <td>${post.getTitle()}</td>
+                    <td><a href="detailView/${post.getSeq()}">${post.getTitle()}</a></td>
                     <td>${post.getContent()}</td>
+                    <td>${post.getCnt()}</td>
                     <td><a href="updateView/${post.getSeq()}">수정</a></td>
                     <td><a href="delete/${post.getSeq()}">삭제</a></td>
                 </tr>

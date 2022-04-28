@@ -56,6 +56,14 @@ public class BoardController {
         return "redirect:/";
     }
 
+    @RequestMapping(value="/detailView/{seq}" , method = RequestMethod.GET)
+    public String Detail(@PathVariable("seq") long seq, Model model){
+        BoardDto boardDto = boardService.getPost(seq);
+        boardService.updateCnt(boardDto);
+        model.addAttribute("command", boardDto);
+        return "detail";
+    }
+
     // ***************************************************************************************************
     // ******************************************* Do not edit *******************************************
     // 아래 부분은 수정 안하셔도 됩니다. (글 생성, 글 업데이트 창으로 연결하는 부분)
