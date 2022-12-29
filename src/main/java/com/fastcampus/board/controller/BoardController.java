@@ -80,5 +80,15 @@ public class BoardController {
         model.addAttribute("command", boardDto);
         return "update";
     }
+
+//    @RequestMapping("/hello")
+//    public String hello()   {
+//        return "hello";
+//    }
+
+//    @RequestMapping(value="/hello", method = RequestMethod.GET)
+//    public String hello()   {
+//        return "hello";
+//    }
 }
 
