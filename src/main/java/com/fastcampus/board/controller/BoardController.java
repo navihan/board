@@ -4,10 +4,7 @@ import com.fastcampus.board.dto.BoardDto;
 import com.fastcampus.board.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -81,7 +78,7 @@ public class BoardController {
         return "update";
     }
 
-//    @RequestMapping("/hello")
+//    @GetMapping("/hello")
 //    public String hello()   {
 //        return "hello";
 //    }
